@@ -1,6 +1,6 @@
 import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { PersonEntity } from './PersonEntity';
+import { UserEntity } from './UserEntity';
 
 @Entity({ name: "skills" })
 export class SkillsEntity extends BaseEntity {
@@ -10,12 +10,12 @@ export class SkillsEntity extends BaseEntity {
   @Column()
   skill: string;
 
-  @ManyToOne(type => PersonEntity, person => person.skill)
+  @ManyToOne(type => UserEntity, user => user.skill)
   @JoinColumn({
-    name: 'person_id',
+    name: 'user_id',
     referencedColumnName: 'id'
   })
-  person?: PersonEntity[];
+  user?: UserEntity[];
 
   constructor(
     skill: string

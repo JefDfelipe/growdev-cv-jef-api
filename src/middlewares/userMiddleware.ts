@@ -2,12 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import { HttpError } from '../errors';
 import { HttpBadRequestCode, invalidField } from '../constants';
 
-export const generoValidateMiddleware = (request: Request, response: Response, next: NextFunction) => {
-    const { nome } = request.body;
+export const userNameValidateMiddleware = (request: Request, response: Response, next: NextFunction) => {
+    const { name } = request.body;
 
-    if (nome.length < 3 || nome.length > 255) {
+    if (name.length < 2 || name.length > 255) {
         throw new HttpError(invalidField('Nome'), HttpBadRequestCode);
     };
-    
+
     next();
 };

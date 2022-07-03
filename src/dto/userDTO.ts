@@ -1,4 +1,4 @@
-export type PersonDTO = {
+export type UserDTO = {
     id?: string;
     name: string;
     profile: string,

@@ -7,7 +7,7 @@ import {
   JoinColumn
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { PersonEntity } from './PersonEntity';
+import { UserEntity } from './UserEntity';
 
 @Entity({ name: "address" })
 export class AddressEntity extends BaseEntity {
@@ -29,12 +29,12 @@ export class AddressEntity extends BaseEntity {
   @Column()
   country: string;
 
-  @ManyToOne(type => PersonEntity, person => person.address)
+  @ManyToOne(type => UserEntity, user => user.address)
   @JoinColumn({
-    name: 'person_id',
+    name: 'user_id',
     referencedColumnName: 'id'
   })
-  person?: PersonEntity[];
+  user?: UserEntity[];
 
   constructor(
     street: string,

@@ -1,1 +1,6 @@
-export * from './generoRouter'
+export * from './addressRouter'
+export * from './contactRouter'
+export * from './experienceRouter'
+export * from './languagesRouter'
+export * from './userRouter'
+export * from './skillsRouter'

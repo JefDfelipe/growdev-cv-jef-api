@@ -13,8 +13,8 @@ import { ExperienceEntity } from './ExperienceEntity';
 import { LanguagesEntity } from './LanguagesEntity';
 import { SkillsEntity } from './SkillsEntity';
 
-@Entity({ name: "person" })
-export class PersonEntity extends BaseEntity {
+@Entity({ name: "user" })
+export class UserEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;
 
@@ -39,19 +39,19 @@ export class PersonEntity extends BaseEntity {
   @Column({ name: "skills_id" })
   skillsId: string;
 
-  @OneToMany(type => AddressEntity, address => address.person)
+  @OneToMany(type => AddressEntity, address => address.user)
   address?: AddressEntity[];
 
-  @OneToMany(type => ContactEntity, contact => contact.person)
+  @OneToMany(type => ContactEntity, contact => contact.user)
   contact?: ContactEntity[];
 
-  @OneToMany(type => ExperienceEntity, experience => experience.person)
+  @OneToMany(type => ExperienceEntity, experience => experience.user)
   experience?: ExperienceEntity[];
 
-  @ManyToMany(type => LanguagesEntity, language => language.person)
+  @ManyToMany(type => LanguagesEntity, language => language.user)
   language?: LanguagesEntity[];
 
-  @OneToMany(type => SkillsEntity, skill => skill.person)
+  @OneToMany(type => SkillsEntity, skill => skill.user)
   skill?: SkillsEntity[];
 
 

@@ -1,6 +1,6 @@
 import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid'
-import { PersonEntity } from './PersonEntity';
+import { UserEntity } from './UserEntity';
 
 @Entity({ name: "contact" })
 export class ContactEntity extends BaseEntity {
@@ -13,12 +13,12 @@ export class ContactEntity extends BaseEntity {
   @Column()
   email: string;
 
-  @ManyToOne(type => PersonEntity, person => person.contact)
+  @ManyToOne(type => UserEntity, user => user.contact)
   @JoinColumn({
-    name: 'person_id',
+    name: 'user_id',
     referencedColumnName: 'id'
   })
-  person?: PersonEntity[];
+  user?: UserEntity[];
 
   constructor(
     phoneNumber: string,

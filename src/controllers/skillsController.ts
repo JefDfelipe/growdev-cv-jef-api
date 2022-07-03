@@ -1,82 +1,83 @@
 import { Request, Response } from 'express';
-import { GeneroService } from '../services';
+import { SkillsService } from '../services';
 import { HttpError } from '../errors';
 import { defaultErrorMessage, HttpInternalErrorCode } from '../constants';
- 
-export default class GeneroController {
-    async index(request: Request, response: Response) {
-        const service = new GeneroService();
+import { SkillsDTO } from '../dto';
+
+export class SkillsController {
+    async index(response: Response) {
+        const service = new SkillsService();
 
         try {
-            const generos = await service.find();
-    
-            return response.json(generos.map(genero => {
+            const skills = await service.find();
+
+            return response.json(skills.map(skills => {
                 return {
-                    nome: genero.nome.toUpperCase()
+                    skill: skills.skill.toUpperCase()
                 }
             }));
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        }
-    }
+        };
+    };
 
     async show(request: Request, response: Response) {
         const { id } = request.params;
-        const service = new GeneroService();
+        const service = new SkillsService();
 
         try {
-            const genero = await service.findOne(parseInt(id));
-    
+            const skills = await service.findOne(id);
+
             return response.json({
-                nome: genero?.nome.toUpperCase()
+                skill: skills?.skill.toUpperCase()
             });
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        }
-    }
+        };
+    };
 
     async store(request: Request, response: Response) {
-        const { nome } = request.body;
-        const service = new GeneroService();
+        const { skill }: SkillsDTO = request.body;
+        const service = new SkillsService();
 
         try {
-            const genero = await service.create({
-                nome: nome
+            const skills = await service.create({
+                skill: skill
             });
 
-            return response.json(genero);
+            return response.json(skills);
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        }
-    }
+        };
+    };
 
     async update(request: Request, response: Response) {
         const { id } = request.params;
-        const { nome } = request.body;
-        const service = new GeneroService();
+        const { skill }: SkillsDTO = request.body;
+        const service = new SkillsService();
 
         try {
-            const genero = await service.update({
-                id: parseInt(id),
-                nome: nome
+            const skills = await service.update({
+                id: id,
+                skill: skill
             });
-            
-            return response.json(genero);
+
+            return response.json(skills);
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        }
-    }
+        };
+    };
 
     async delete(request: Request, response: Response) {
         const { id } = request.params;
-        const service = new GeneroService();
+        const service = new SkillsService();
 
         try {
-            await service.delete(parseInt(id));
-    
+            await service.delete(id);
+
             return response.sendStatus(204);
         } catch (error) {
             throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        }
-    }
+        };
+    };
 };
