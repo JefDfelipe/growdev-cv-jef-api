@@ -1,4 +1,4 @@
 export type LanguagesDTO = {
-    id?: string;
-    language: string
+  id?: string;
+  language: string
 };

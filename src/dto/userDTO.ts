@@ -1,10 +1,10 @@
 export type UserDTO = {
-    id?: string;
-    name: string;
-    profile: string,
-    addressId: string,
-    experienceId: string,
-    contactId: string,
-    languagesId: string,
-    skillsId: string
+  id?: string;
+  name: string;
+  profile: string,
+  address: string,
+  experience?: string[],
+  contact: string,
+  languages?: string[],
+  skills?: string[]
 };

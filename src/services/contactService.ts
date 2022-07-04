@@ -2,36 +2,36 @@ import { ContactRepository } from '../database/repositories';
 import { ContactDTO } from '../dto';
 
 export class ContactService {
-    async find() {
-        const repository = new ContactRepository();
-        const contact = await repository.find();
+  async find() {
+    const repository = new ContactRepository();
+    const contact = await repository.find();
 
-        return contact;
-    };
+    return contact;
+  };
 
-    async findOne(id: string) {
-        const repository = new ContactRepository();
-        const contact = await repository.findOne(id);
+  async findOne(id: string) {
+    const repository = new ContactRepository();
+    const contact = await repository.findOne(id);
 
-        return contact;
-    };
+    return contact;
+  };
 
-    async create(contactDTO: ContactDTO) {
-        const repository = new ContactRepository();
-        const contact = await repository.create(contactDTO);
+  async create(contactDTO: ContactDTO) {
+    const repository = new ContactRepository();
+    const contact = await repository.create(contactDTO);
 
-        return contact;
-    };
+    return contact;
+  };
 
-    async update(contactDTO: ContactDTO) {
-        const repository = new ContactRepository();
-        const contact = await repository.update(contactDTO);
+  async update(contactDTO: ContactDTO) {
+    const repository = new ContactRepository();
+    const contact = await repository.update(contactDTO);
 
-        return contact;
-    };
+    return contact;
+  };
 
-    async delete(contactID: string) {
-        const repository = new ContactRepository();
-        await repository.delete(contactID);
-    };
+  async delete(contactID: string) {
+    const repository = new ContactRepository();
+    await repository.delete(contactID);
+  };
 };

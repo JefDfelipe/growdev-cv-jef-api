@@ -1,4 +1,4 @@
 export type SkillsDTO = {
-    id?: string;
-    skill: string
+  id?: string;
+  skill: string
 };

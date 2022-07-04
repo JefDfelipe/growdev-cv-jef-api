@@ -2,36 +2,36 @@ import { SkillsRepository } from '../database/repositories';
 import { SkillsDTO } from '../dto';
 
 export class SkillsService {
-    async find() {
-        const repository = new SkillsRepository();
-        const skill = await repository.find();
+  async find() {
+    const repository = new SkillsRepository();
+    const skill = await repository.find();
 
-        return skill;
-    };
+    return skill;
+  };
 
-    async findOne(id: string) {
-        const repository = new SkillsRepository();
-        const skill = await repository.findOne(id);
+  async findOne(id: string) {
+    const repository = new SkillsRepository();
+    const skill = await repository.findOne(id);
 
-        return skill;
-    };
+    return skill;
+  };
 
-    async create(skillDTO: SkillsDTO) {
-        const repository = new SkillsRepository();
-        const skill = await repository.create(skillDTO);
+  async create(skillDTO: SkillsDTO) {
+    const repository = new SkillsRepository();
+    const skill = await repository.create(skillDTO);
 
-        return skill;
-    };
+    return skill;
+  };
 
-    async update(skillDTO: SkillsDTO) {
-        const repository = new SkillsRepository();
-        const skill = await repository.update(skillDTO);
+  async update(skillDTO: SkillsDTO) {
+    const repository = new SkillsRepository();
+    const skill = await repository.update(skillDTO);
 
-        return skill;
-    };
+    return skill;
+  };
 
-    async delete(skillID: string) {
-        const repository = new SkillsRepository();
-        await repository.delete(skillID);
-    };
+  async delete(skillID: string) {
+    const repository = new SkillsRepository();
+    await repository.delete(skillID);
+  };
 };

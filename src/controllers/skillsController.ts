@@ -5,79 +5,79 @@ import { defaultErrorMessage, HttpInternalErrorCode } from '../constants';
 import { SkillsDTO } from '../dto';
 
 export class SkillsController {
-    async index(response: Response) {
-        const service = new SkillsService();
+  async index(response: Response) {
+    const service = new SkillsService();
 
-        try {
-            const skills = await service.find();
+    try {
+      const skills = await service.find();
 
-            return response.json(skills.map(skills => {
-                return {
-                    skill: skills.skill.toUpperCase()
-                }
-            }));
-        } catch (error) {
-            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        };
+      return response.json(skills.map(skills => {
+        return {
+          skill: skills.skill.toUpperCase()
+        }
+      }));
+    } catch (error) {
+      throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
     };
+  };
 
-    async show(request: Request, response: Response) {
-        const { id } = request.params;
-        const service = new SkillsService();
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+    const service = new SkillsService();
 
-        try {
-            const skills = await service.findOne(id);
+    try {
+      const skills = await service.findOne(id);
 
-            return response.json({
-                skill: skills?.skill.toUpperCase()
-            });
-        } catch (error) {
-            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        };
+      return response.json({
+        skill: skills?.skill.toUpperCase()
+      });
+    } catch (error) {
+      throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
     };
+  };
 
-    async store(request: Request, response: Response) {
-        const { skill }: SkillsDTO = request.body;
-        const service = new SkillsService();
+  async store(request: Request, response: Response) {
+    const { skill }: SkillsDTO = request.body;
+    const service = new SkillsService();
 
-        try {
-            const skills = await service.create({
-                skill: skill
-            });
+    try {
+      const skills = await service.create({
+        skill: skill
+      });
 
-            return response.json(skills);
-        } catch (error) {
-            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        };
+      return response.json(skills);
+    } catch (error) {
+      throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
     };
+  };
 
-    async update(request: Request, response: Response) {
-        const { id } = request.params;
-        const { skill }: SkillsDTO = request.body;
-        const service = new SkillsService();
+  async update(request: Request, response: Response) {
+    const { id } = request.params;
+    const { skill }: SkillsDTO = request.body;
+    const service = new SkillsService();
 
-        try {
-            const skills = await service.update({
-                id: id,
-                skill: skill
-            });
+    try {
+      const skills = await service.update({
+        id: id,
+        skill: skill
+      });
 
-            return response.json(skills);
-        } catch (error) {
-            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        };
+      return response.json(skills);
+    } catch (error) {
+      throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
     };
+  };
 
-    async delete(request: Request, response: Response) {
-        const { id } = request.params;
-        const service = new SkillsService();
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+    const service = new SkillsService();
 
-        try {
-            await service.delete(id);
+    try {
+      await service.delete(id);
 
-            return response.sendStatus(204);
-        } catch (error) {
-            throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
-        };
+      return response.sendStatus(204);
+    } catch (error) {
+      throw new HttpError(defaultErrorMessage, HttpInternalErrorCode);
     };
+  };
 };

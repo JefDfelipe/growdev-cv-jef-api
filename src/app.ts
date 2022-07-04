@@ -10,67 +10,67 @@ import path from 'path';
 import fs from 'fs';
 
 export default class Application {
-    readonly #express: express.Application;
+  readonly #express: express.Application;
 
-    constructor() {
-        this.#express = express();
-    }
+  constructor() {
+    this.#express = express();
+  }
 
-    async init() {        
-        this.config();
-        this.middlewares();
-        this.routers();
-        this.errors();
-        await this.database();
-    }
+  async init() {
+    this.config();
+    this.middlewares();
+    this.routers();
+    this.errors();
+    await this.database();
+  }
 
-    start(port: number) {
-        this.#express.listen(port, () => {
-            console.log(`A aplicação está rodando na porta ${port}...`); 
-        });
-    }
+  start(port: number) {
+    this.#express.listen(port, () => {
+      console.log(`A aplicação está rodando na porta ${port}...`);
+    });
+  }
 
-    private config() {
-        this.#express.use(express.json());
-        this.#express.use(express.urlencoded({ extended: false }));
-        this.#express.use(cors());
-    }
+  private config() {
+    this.#express.use(express.json());
+    this.#express.use(express.urlencoded({ extended: false }));
+    this.#express.use(cors());
+  }
 
-    private middlewares() {
-        this.#express.use(logMiddleware);
-    }
+  private middlewares() {
+    this.#express.use(logMiddleware);
+  }
 
-    private errors() {
-        this.#express.use((error: HttpError, request: Request, response: Response, next: NextFunction) => {
-            return response.status(error.status).json({
-                mensagem: error.message
-            });
-        });
-    }
+  private errors() {
+    this.#express.use((error: HttpError, request: Request, response: Response, next: NextFunction) => {
+      return response.status(error.status).json({
+        mensagem: error.message
+      });
+    });
+  }
 
-    private routers() {
-        // const generoRouter = new GeneroRoutes().init();
-        // this.#express.use(generoRouter);
+  private routers() {
+    // const generoRouter = new GeneroRoutes().init();
+    // this.#express.use(generoRouter);
 
-        //D.I. = injeção de dependência
+    //D.I. = injeção de dependência
 
-        //ioc = inversão de dependência
-        // pattern builder, factory
+    //ioc = inversão de dependência
+    // pattern builder, factory
 
 
-        //método I.O. para buscar routers
-        //ToDo: refatorar para buscar aoenas arquivos que implementam Router
-        const routersPath = path.resolve(__dirname, 'routers');//cada parâmetro é um nível de diretório
+    //método I.O. para buscar routers
+    //ToDo: refatorar para buscar aoenas arquivos que implementam Router
+    const routersPath = path.resolve(__dirname, 'routers');//cada parâmetro é um nível de diretório
 
-        fs.readdirSync(routersPath).forEach(filename => {
-            import (path.resolve(routersPath, filename)).then(file=>{
-                const instance = new file.default();
-                this.#express.use(instance.init());
-            });
-        });
-    };
+    fs.readdirSync(routersPath).forEach(filename => {
+      import(path.resolve(routersPath, filename)).then(file => {
+        const instance = new file.default();
+        this.#express.use(instance.init());
+      });
+    });
+  };
 
-    private async database() {
-        await Database.getInstance();
-    }
+  private async database() {
+    await Database.getInstance();
+  }
 };
