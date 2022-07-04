@@ -4,7 +4,6 @@ import cors from 'cors';
 // import GeneroRoutes from './routers/generoRouter';
 // import LivroRoutes from './routers/livroRouter';
 import Database from './database/connections/Database';
-import { logMiddleware } from './middlewares';
 import { HttpError } from './errors';
 import path from 'path';
 import fs from 'fs';
@@ -18,7 +17,6 @@ export default class Application {
 
   async init() {
     this.config();
-    this.middlewares();
     this.routers();
     this.errors();
     await this.database();
@@ -36,10 +34,6 @@ export default class Application {
     this.#express.use(cors());
   }
 
-  private middlewares() {
-    this.#express.use(logMiddleware);
-  }
-
   private errors() {
     this.#express.use((error: HttpError, request: Request, response: Response, next: NextFunction) => {
       return response.status(error.status).json({
@@ -49,18 +43,7 @@ export default class Application {
   }
 
   private routers() {
-    // const generoRouter = new GeneroRoutes().init();
-    // this.#express.use(generoRouter);
-
-    //D.I. = injeção de dependência
-
-    //ioc = inversão de dependência
-    // pattern builder, factory
-
-
-    //método I.O. para buscar routers
-    //ToDo: refatorar para buscar aoenas arquivos que implementam Router
-    const routersPath = path.resolve(__dirname, 'routers');//cada parâmetro é um nível de diretório
+    const routersPath = path.resolve(__dirname, 'routers');
 
     fs.readdirSync(routersPath).forEach(filename => {
       import(path.resolve(routersPath, filename)).then(file => {

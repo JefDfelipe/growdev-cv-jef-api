@@ -25,21 +25,6 @@ export class UserEntity extends BaseEntity {
   @Column()
   profile: string;
 
-  @Column({ name: "address_id" })
-  addressId: string;
-
-  @Column({ name: "experience_id" })
-  experienceId: string;
-
-  @Column({ name: "contact_id" })
-  contactId: string;
-
-  @Column({ name: "languages_id" })
-  languagesId: string;
-
-  @Column({ name: "skills_id" })
-  skillsId: string;
-
   @OneToMany(type => AddressEntity, address => address.user)
   address?: AddressEntity[];
 
@@ -48,6 +33,9 @@ export class UserEntity extends BaseEntity {
 
   @OneToMany(type => ExperienceEntity, experience => experience.user)
   experience?: ExperienceEntity[];
+
+  @OneToMany(type => SkillsEntity, skill => skill.user)
+  skill?: SkillsEntity[];
 
   @ManyToMany(type => LanguagesEntity, language => language.user)
   @JoinTable({
@@ -63,27 +51,13 @@ export class UserEntity extends BaseEntity {
   })
   language?: LanguagesEntity[];
 
-  @OneToMany(type => SkillsEntity, skill => skill.user)
-  skill?: SkillsEntity[];
-
-
   constructor(
     name: string,
     profile: string,
-    addressId: string,
-    experienceId: string,
-    contactId: string,
-    languagesId: string,
-    skillsId: string
   ) {
     super();
     this.name = name;
     this.profile = profile;
-    this.addressId = addressId;
-    this.experienceId = experienceId;
-    this.contactId = contactId;
-    this.languagesId = languagesId;
-    this.skillsId = skillsId;
 
     if (!this.id) {
       this.id = uuid()

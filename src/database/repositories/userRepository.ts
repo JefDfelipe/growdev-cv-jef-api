@@ -17,12 +17,7 @@ export class UserRepository {
   async create(userDTO: UserDTO) {
     const user = new UserEntity(
       userDTO.name,
-      userDTO.profile,
-      userDTO.addressId,
-      userDTO.experienceId,
-      userDTO.contactId,
-      userDTO.languagesId,
-      userDTO.skillsId
+      userDTO.profile
     );
 
     user.save();

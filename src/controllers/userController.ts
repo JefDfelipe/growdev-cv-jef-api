@@ -38,18 +38,18 @@ export class UserController {
   };
 
   async store(request: Request, response: Response) {
-    const { name, profile, addressId, contactId, experienceId, languagesId, skillsId }: UserDTO = request.body;
+    const { name, profile, address, contact, experience, languages, skills }: UserDTO = request.body;
     const service = new UserService();
 
     try {
       const user = await service.create({
         name: name,
         profile: profile,
-        addressId: addressId,
-        contactId: contactId,
-        experienceId: experienceId,
-        languagesId: languagesId,
-        skillsId: skillsId
+        address: address,
+        contact: contact,
+        experience: experience,
+        languages: languages,
+        skills: skills
       });
 
       return response.json(user);
@@ -60,7 +60,7 @@ export class UserController {
 
   async update(request: Request, response: Response) {
     const { id } = request.params;
-    const { name, profile, addressId, contactId, experienceId, languagesId, skillsId }: UserDTO = request.body;
+    const { name, profile, address, contact, experience, languages, skills }: UserDTO = request.body;
     const service = new UserService();
 
     try {
@@ -68,11 +68,11 @@ export class UserController {
         id: id,
         name: name,
         profile: profile,
-        addressId: addressId,
-        contactId: contactId,
-        experienceId: experienceId,
-        languagesId: languagesId,
-        skillsId: skillsId
+        address: address,
+        contact: contact,
+        experience: experience,
+        languages: languages,
+        skills: skills
       });
 
       return response.json(user);
