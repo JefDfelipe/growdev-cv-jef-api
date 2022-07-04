@@ -25,26 +25,25 @@ export class CreateTableUser1656786611149 implements MigrationInterface {
         {
           name: "address_id",
           type: "varchar",
+          length: "255",
           isNullable: false
         },
         {
           name: "experience_id",
           type: "varchar",
+          length: "255",
           isNullable: false
         },
         {
           name: "contact_id",
           type: "varchar",
-          isNullable: false
-        },
-        {
-          name: "languages_id",
-          type: "varchar",
+          length: "255",
           isNullable: false
         },
         {
           name: "skills_id",
           type: "varchar",
+          length: "255",
           isNullable: false
         }
       ],
@@ -63,11 +62,6 @@ export class CreateTableUser1656786611149 implements MigrationInterface {
           columnNames: ["contact_id"],
           referencedColumnNames: ["id"],
           referencedTableName: "contact"
-        }),
-        new TableForeignKey({
-          columnNames: ["languages_id"],
-          referencedColumnNames: ["id"],
-          referencedTableName: "languages"
         }),
         new TableForeignKey({
           columnNames: ["skills_id"],

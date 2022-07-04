@@ -4,7 +4,8 @@ import {
   PrimaryColumn,
   Column,
   OneToMany,
-  ManyToMany
+  ManyToMany,
+  JoinTable
 } from 'typeorm';
 import { v4 as uuid } from 'uuid'
 import { AddressEntity } from './AddressEntity'
@@ -49,6 +50,17 @@ export class UserEntity extends BaseEntity {
   experience?: ExperienceEntity[];
 
   @ManyToMany(type => LanguagesEntity, language => language.user)
+  @JoinTable({
+    name: 'user_languages',
+    joinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id'
+    },
+    inverseJoinColumn: {
+      name: 'languages_id',
+      referencedColumnName: 'id'
+    }
+  })
   language?: LanguagesEntity[];
 
   @OneToMany(type => SkillsEntity, skill => skill.user)

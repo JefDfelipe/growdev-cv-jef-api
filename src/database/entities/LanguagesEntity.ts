@@ -1,4 +1,4 @@
-import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, BaseEntity, PrimaryColumn, Column, ManyToMany, JoinTable } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './UserEntity';
 
@@ -10,10 +10,17 @@ export class LanguagesEntity extends BaseEntity {
   @Column()
   language: string;
 
-  @ManyToOne(type => UserEntity, user => user.language)
-  @JoinColumn({
-    name: 'user_id',
-    referencedColumnName: 'id'
+  @ManyToMany(type => UserEntity, user => user.language)
+  @JoinTable({
+    name: 'user_languages',
+    joinColumn: {
+      name: 'languages_id',
+      referencedColumnName: 'id'
+    },
+    inverseJoinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id'
+    }
   })
   user?: UserEntity[];
 
