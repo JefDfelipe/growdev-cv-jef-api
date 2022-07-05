@@ -1,8 +1,5 @@
 import express, { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
 import cors from 'cors';
-//método I.O. não precisa de imports assim:
-// import GeneroRoutes from './routers/generoRouter';
-// import LivroRoutes from './routers/livroRouter';
 import Database from './database/connections/Database';
 import { HttpError } from './errors';
 import path from 'path';

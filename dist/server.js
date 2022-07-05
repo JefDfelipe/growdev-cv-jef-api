@@ -5,6 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
 const application = new app_1.default();
-const port = process.env.PORT ? Number(process.env.PORT) : 8080;
+const port = Number(process.env.PORT) ?? 8080;
 application.init();
 application.start(port);

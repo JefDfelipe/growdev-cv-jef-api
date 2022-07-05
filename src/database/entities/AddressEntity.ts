@@ -42,7 +42,8 @@ export class AddressEntity extends BaseEntity {
     state: string,
     cep: string,
     country: string
-  ) {
+  ) 
+  {
     super();
     this.street = street;
     this.city = city;
