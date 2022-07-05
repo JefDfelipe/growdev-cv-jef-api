@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
 
 export class CreateTableUserLanguages1656893120221 implements MigrationInterface {
 
@@ -9,14 +9,14 @@ export class CreateTableUserLanguages1656893120221 implements MigrationInterface
         {
           name: 'user_id',
           type: 'varchar',
-          length: "255",
+          length: '255',
           isPrimary: true,
           isNullable: false
         },
         {
           name: 'languages_id',
           type: 'varchar',
-          length: "255",
+          length: '255',
           isPrimary: true,
           isNullable: false
         }

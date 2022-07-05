@@ -1,27 +1,27 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class CreateTableContact1656797121612 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(new Table({
-      name: "contact",
+      name: 'contact',
       columns: [
         {
-          name: "id",
-          type: "uuid",
+          name: 'id',
+          type: 'uuid',
           isPrimary: true,
           isNullable: false
         },
         {
-          name: "phone_number",
-          type: "varchar",
-          length: "11",
+          name: 'phone_number',
+          type: 'varchar',
+          length: '11',
           isNullable: false
         },
         {
-          name: "email",
-          type: "varchar",
-          length: "255",
+          name: 'email',
+          type: 'varchar',
+          length: '255',
           isNullable: false
         },
       ]
@@ -29,7 +29,7 @@ export class CreateTableContact1656797121612 implements MigrationInterface {
   };
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("contact", true, true, true);
+    await queryRunner.dropTable('contact', true, true, true);
   };
 
 }

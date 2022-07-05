@@ -2,7 +2,7 @@ import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './UserEntity';
 
-@Entity({ name: "skills" })
+@Entity({ name: 'skills' })
 export class SkillsEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;

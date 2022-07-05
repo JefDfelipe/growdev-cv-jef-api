@@ -14,7 +14,7 @@ import { ExperienceEntity } from './ExperienceEntity';
 import { LanguagesEntity } from './LanguagesEntity';
 import { SkillsEntity } from './SkillsEntity';
 
-@Entity({ name: "user" })
+@Entity({ name: 'user' })
 export class UserEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;

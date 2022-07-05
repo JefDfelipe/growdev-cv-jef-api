@@ -2,12 +2,12 @@ import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from
 import { v4 as uuid } from 'uuid'
 import { UserEntity } from './UserEntity';
 
-@Entity({ name: "contact" })
+@Entity({ name: 'contact' })
 export class ContactEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;
 
-  @Column({ name: "phone_number" })
+  @Column({ name: 'phone_number' })
   phoneNumber: string;
 
   @Column()

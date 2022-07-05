@@ -9,7 +9,7 @@ import {
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './UserEntity';
 
-@Entity({ name: "address" })
+@Entity({ name: 'address' })
 export class AddressEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;

@@ -2,7 +2,7 @@ import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './UserEntity';
 
-@Entity({ name: "experience" })
+@Entity({ name: 'experience' })
 export class ExperienceEntity extends BaseEntity {
   @PrimaryColumn()
   id?: string;
@@ -10,7 +10,7 @@ export class ExperienceEntity extends BaseEntity {
   @Column()
   company: string;
 
-  @Column({ name: "work_period" })
+  @Column({ name: 'work_period' })
   workPeriod: string;
 
   @Column()
