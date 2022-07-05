@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddressRoutes = void 0;
 const express_1 = require("express");
 const addressController_1 = require("../controllers/addressController");
 class AddressRoutes {
@@ -16,5 +15,5 @@ class AddressRoutes {
     }
     ;
 }
-exports.AddressRoutes = AddressRoutes;
+exports.default = AddressRoutes;
 ;

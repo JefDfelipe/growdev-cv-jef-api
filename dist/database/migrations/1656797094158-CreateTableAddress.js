@@ -42,7 +42,20 @@ class CreateTableAddress1656797094158 {
                     type: "varchar",
                     length: "60",
                     isNullable: false
+                },
+                {
+                    name: "user_id",
+                    type: "varchar",
+                    length: "255",
+                    isNullable: false
                 }
+            ],
+            foreignKeys: [
+                new typeorm_1.TableForeignKey({
+                    columnNames: ["user_id"],
+                    referencedColumnNames: ["id"],
+                    referencedTableName: "user"
+                })
             ]
         }));
     }

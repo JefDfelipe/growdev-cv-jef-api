@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { AddressController } from '../controllers/addressController';
 import { HttpRouter } from '../contracts';
 
-export class AddressRoutes implements HttpRouter {
+export default class AddressRoutes implements HttpRouter {
   init() {
     const routes = Router();
     const controller = new AddressController();

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { ContactController } from '../controllers/contactController';
 import { HttpRouter } from '../contracts';
 
-export class ContactRoutes implements HttpRouter {
+export default class ContactRoutes implements HttpRouter {
   init() {
     const routes = Router();
     const controller = new ContactController();

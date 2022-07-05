@@ -5,18 +5,18 @@ module.exports = {
     url: process.env.DATABASE_URL,
     logging: false,
     extra: {
-        ssl: { //certificado de segurança do Heroku. Só é necessário por causa do Heroku.
+        ssl: {
             rejectUnauthorized: false
         }
     },
     migrations: [
-        'src/database/migrations/**/*'
+        'dist/database/migrations/*/'
     ],
     entities: [
-        'src/database/entities/**/*'
+        'dist/database/entities/*/'
     ],
     cli: {
-        entitiesDir: 'src/database/entities',
-        migrationsDir: 'src/database/migrations'
+        entitiesDir: 'dist/database/entities',
+        migrationsDir: 'dist/database/migrations'
     }
-}
+};

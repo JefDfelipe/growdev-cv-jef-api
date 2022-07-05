@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { LanguagesController } from '../controllers/languagesController';
 import { HttpRouter } from '../contracts';
 
-export class LanguagesRoutes implements HttpRouter {
+export default class LanguagesRoutes implements HttpRouter {
   init() {
     const routes = Router();
     const controller = new LanguagesController();

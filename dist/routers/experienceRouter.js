@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExperienceRoutes = void 0;
 const express_1 = require("express");
 const experienceController_1 = require("../controllers/experienceController");
 class ExperienceRoutes {
@@ -16,5 +15,5 @@ class ExperienceRoutes {
     }
     ;
 }
-exports.ExperienceRoutes = ExperienceRoutes;
+exports.default = ExperienceRoutes;
 ;

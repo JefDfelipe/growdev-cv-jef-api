@@ -3,7 +3,7 @@ import { UserController } from '../controllers/userController';
 import { userNameValidateMiddleware } from '../middlewares';
 import { HttpRouter } from '../contracts';
 
-export class UserRoutes implements HttpRouter {
+export default class UserRoutes implements HttpRouter {
   init() {
     const routes = Router();
     const controller = new UserController();

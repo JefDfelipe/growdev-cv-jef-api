@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContactRoutes = void 0;
 const express_1 = require("express");
 const contactController_1 = require("../controllers/contactController");
 class ContactRoutes {
@@ -16,5 +15,5 @@ class ContactRoutes {
     }
     ;
 }
-exports.ContactRoutes = ContactRoutes;
+exports.default = ContactRoutes;
 ;

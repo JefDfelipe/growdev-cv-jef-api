@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SkillsRoutes = void 0;
 const express_1 = require("express");
 const skillsController_1 = require("../controllers/skillsController");
 class SkillsRoutes {
@@ -16,5 +15,5 @@ class SkillsRoutes {
     }
     ;
 }
-exports.SkillsRoutes = SkillsRoutes;
+exports.default = SkillsRoutes;
 ;

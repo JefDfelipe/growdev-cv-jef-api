@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LanguagesRoutes = void 0;
 const express_1 = require("express");
 const languagesController_1 = require("../controllers/languagesController");
 class LanguagesRoutes {
@@ -16,5 +15,5 @@ class LanguagesRoutes {
     }
     ;
 }
-exports.LanguagesRoutes = LanguagesRoutes;
+exports.default = LanguagesRoutes;
 ;

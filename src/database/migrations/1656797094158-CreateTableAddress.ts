@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from "typeorm";
 
 export class CreateTableAddress1656797094158 implements MigrationInterface {
 
@@ -41,7 +41,20 @@ export class CreateTableAddress1656797094158 implements MigrationInterface {
           type: "varchar",
           length: "60",
           isNullable: false
+        },
+        {
+          name: "user_id",
+          type: "varchar",
+          length: "255",
+          isNullable: false
         }
+      ],
+      foreignKeys: [
+        new TableForeignKey({
+          columnNames: ["user_id"],
+          referencedColumnNames: ["id"],
+          referencedTableName: "user"
+        })
       ]
     }));
   };
