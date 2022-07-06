@@ -27,7 +27,7 @@ export class UserController {
     const service = new UserService();
 
     try {
-      const user = await service.findOne(id);
+      const user = await service.findOne(parseInt(id));
 
       return response.json({
         name: user?.name.toUpperCase()
@@ -65,7 +65,7 @@ export class UserController {
 
     try {
       const user = await service.update({
-        id: id,
+        id: parseInt(id),
         name: name,
         profile: profile,
         address: address,
@@ -86,7 +86,7 @@ export class UserController {
     const service = new UserService();
 
     try {
-      await service.delete(id);
+      await service.delete(parseInt(id));
 
       return response.sendStatus(204);
     } catch (error) {

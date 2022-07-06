@@ -26,7 +26,7 @@ export class LanguagesController {
     const service = new LanguagesService();
 
     try {
-      const languages = await service.findOne(id);
+      const languages = await service.findOne(parseInt(id));
 
       return response.json({
         language: languages?.language.toUpperCase()
@@ -58,7 +58,7 @@ export class LanguagesController {
 
     try {
       const languages = await service.update({
-        id: id,
+        id: parseInt(id),
         language: language
       });
 
@@ -73,7 +73,7 @@ export class LanguagesController {
     const service = new LanguagesService();
 
     try {
-      await service.delete(id);
+      await service.delete(parseInt(id));
 
       return response.sendStatus(204);
     } catch (error) {

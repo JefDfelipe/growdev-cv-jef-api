@@ -9,7 +9,7 @@ export class ExperienceService {
     return experience;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const repository = new ExperienceRepository();
     const experience = await repository.findOne(id);
 
@@ -30,7 +30,7 @@ export class ExperienceService {
     return experience;
   };
 
-  async delete(experienceID: string) {
+  async delete(experienceID: number) {
     const repository = new ExperienceRepository();
     await repository.delete(experienceID);
   };

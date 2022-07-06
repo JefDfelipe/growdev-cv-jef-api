@@ -1,5 +1,5 @@
 export type ExperienceDTO = {
-  id?: string;
+  id?: number;
   company: string,
   workPeriod: string,
   description: string

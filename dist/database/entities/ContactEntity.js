@@ -11,26 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContactEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const UserEntity_1 = require("./UserEntity");
 let ContactEntity = class ContactEntity extends typeorm_1.BaseEntity {
     constructor(phoneNumber, email) {
         super();
         this.phoneNumber = phoneNumber;
         this.email = email;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ContactEntity.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: "phone_number" }),
+    (0, typeorm_1.Column)({ name: 'phone_number' }),
     __metadata("design:type", String)
 ], ContactEntity.prototype, "phoneNumber", void 0);
 __decorate([
@@ -46,7 +41,7 @@ __decorate([
     __metadata("design:type", Array)
 ], ContactEntity.prototype, "user", void 0);
 ContactEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "contact" }),
+    (0, typeorm_1.Entity)({ name: 'contact' }),
     __metadata("design:paramtypes", [String, String])
 ], ContactEntity);
 exports.ContactEntity = ContactEntity;

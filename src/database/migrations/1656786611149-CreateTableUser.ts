@@ -1,14 +1,16 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm'
 
 export class CreateTableUser1656786611149 implements MigrationInterface {
+
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(new Table({
       name: 'user',
       columns: [
         {
           name: 'id',
-          type: 'uuid',
+          type: 'int',
           isPrimary: true,
+          isGenerated: true,
           isNullable: false
         },
         {
@@ -24,26 +26,22 @@ export class CreateTableUser1656786611149 implements MigrationInterface {
         },
         {
           name: 'address_id',
-          type: 'varchar',
-          length: '255',
+          type: 'int',
           isNullable: false
         },
         {
           name: 'experience_id',
-          type: 'varchar',
-          length: '255',
+          type: 'int',
           isNullable: false
         },
         {
           name: 'contact_id',
-          type: 'varchar',
-          length: '255',
+          type: 'int',
           isNullable: false
         },
         {
           name: 'skills_id',
-          type: 'varchar',
-          length: '255',
+          type: 'int',
           isNullable: false
         }
       ],
@@ -69,10 +67,10 @@ export class CreateTableUser1656786611149 implements MigrationInterface {
           referencedTableName: 'skills'
         })
       ]
-    }));
-  };
+    }))
+  }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('user', true, true, true);
-  };
-};
+    await queryRunner.dropTable('user', true, true, true)
+  }
+}

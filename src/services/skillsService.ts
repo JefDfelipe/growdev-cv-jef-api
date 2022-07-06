@@ -9,7 +9,7 @@ export class SkillsService {
     return skill;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const repository = new SkillsRepository();
     const skill = await repository.findOne(id);
 
@@ -30,7 +30,7 @@ export class SkillsService {
     return skill;
   };
 
-  async delete(skillID: string) {
+  async delete(skillID: number) {
     const repository = new SkillsRepository();
     await repository.delete(skillID);
   };

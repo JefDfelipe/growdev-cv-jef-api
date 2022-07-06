@@ -8,7 +8,7 @@ export class ContactRepository {
     return contact;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const contact = await ContactEntity.findOne(id);
 
     return contact;
@@ -38,7 +38,7 @@ export class ContactRepository {
     return contact;
   };
 
-  async delete(contactID: string) {
+  async delete(contactID: number) {
     await ContactEntity.delete(contactID);
   };
 };

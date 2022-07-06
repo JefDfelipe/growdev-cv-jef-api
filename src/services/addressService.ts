@@ -9,7 +9,7 @@ export class AddressService {
     return user;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const repository = new AddressRepository();
     const user = await repository.findOne(id);
 
@@ -30,7 +30,7 @@ export class AddressService {
     return user;
   };
 
-  async delete(userID: string) {
+  async delete(userID: number) {
     const repository = new AddressRepository();
     await repository.delete(userID);
   };

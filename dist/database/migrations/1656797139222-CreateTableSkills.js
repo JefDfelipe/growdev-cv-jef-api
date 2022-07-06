@@ -5,27 +5,25 @@ const typeorm_1 = require("typeorm");
 class CreateTableSkills1656797139222 {
     async up(queryRunner) {
         await queryRunner.createTable(new typeorm_1.Table({
-            name: "skills",
+            name: 'skills',
             columns: [
                 {
-                    name: "id",
-                    type: "uuid",
+                    name: 'id',
+                    type: 'int',
                     isPrimary: true,
+                    isGenerated: true,
                     isNullable: false
                 },
                 {
-                    name: "skill",
-                    type: "text",
+                    name: 'skill',
+                    type: 'text',
                     isNullable: false
                 }
             ]
         }));
     }
-    ;
     async down(queryRunner) {
-        await queryRunner.dropTable("skills", true, true, true);
+        await queryRunner.dropTable('skills', true, true, true);
     }
-    ;
 }
 exports.CreateTableSkills1656797139222 = CreateTableSkills1656797139222;
-;

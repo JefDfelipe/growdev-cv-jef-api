@@ -9,15 +9,13 @@ class CreateTableUserLanguages1656893120221 {
             columns: [
                 {
                     name: 'user_id',
-                    type: 'varchar',
-                    length: "255",
+                    type: 'int',
                     isPrimary: true,
                     isNullable: false
                 },
                 {
                     name: 'languages_id',
-                    type: 'varchar',
-                    length: "255",
+                    type: 'int',
                     isPrimary: true,
                     isNullable: false
                 }
@@ -37,6 +35,7 @@ class CreateTableUserLanguages1656893120221 {
         }));
     }
     async down(queryRunner) {
+        await queryRunner.dropTable('user_languages', true, true, true);
     }
 }
 exports.CreateTableUserLanguages1656893120221 = CreateTableUserLanguages1656893120221;

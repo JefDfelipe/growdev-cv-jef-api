@@ -8,7 +8,7 @@ export class UserRepository {
     return user;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const user = await UserEntity.findOne(id);
 
     return user;
@@ -36,7 +36,7 @@ export class UserRepository {
     return user;
   };
 
-  async delete(userID: string) {
+  async delete(userID: number) {
     await UserEntity.delete(userID);
   };
 }

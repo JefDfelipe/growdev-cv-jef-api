@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
 export class CreateTableExperience1656797108160 implements MigrationInterface {
 
@@ -8,8 +8,9 @@ export class CreateTableExperience1656797108160 implements MigrationInterface {
       columns: [
         {
           name: 'id',
-          type: 'uuid',
+          type: 'int',
           isPrimary: true,
+          isGenerated: true,
           isNullable: false
         },
         {
@@ -30,10 +31,10 @@ export class CreateTableExperience1656797108160 implements MigrationInterface {
           isNullable: false
         }
       ]
-    }));
-  };
+    }))
+  }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('experience', true, true, true);
-  };
-};
+    await queryRunner.dropTable('experience', true, true, true)
+  }
+}

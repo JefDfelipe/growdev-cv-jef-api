@@ -25,7 +25,7 @@ class SkillsController {
         const { id } = request.params;
         const service = new services_1.SkillsService();
         try {
-            const skills = await service.findOne(id);
+            const skills = await service.findOne(parseInt(id));
             return response.json({
                 skill: skills?.skill.toUpperCase()
             });
@@ -57,7 +57,7 @@ class SkillsController {
         const service = new services_1.SkillsService();
         try {
             const skills = await service.update({
-                id: id,
+                id: parseInt(id),
                 skill: skill
             });
             return response.json(skills);
@@ -72,7 +72,7 @@ class SkillsController {
         const { id } = request.params;
         const service = new services_1.SkillsService();
         try {
-            await service.delete(id);
+            await service.delete(parseInt(id));
             return response.sendStatus(204);
         }
         catch (error) {

@@ -11,22 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SkillsEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const UserEntity_1 = require("./UserEntity");
 let SkillsEntity = class SkillsEntity extends typeorm_1.BaseEntity {
     constructor(skill) {
         super();
         this.skill = skill;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], SkillsEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -41,7 +36,7 @@ __decorate([
     __metadata("design:type", Array)
 ], SkillsEntity.prototype, "user", void 0);
 SkillsEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "skills" }),
+    (0, typeorm_1.Entity)({ name: 'skills' }),
     __metadata("design:paramtypes", [String])
 ], SkillsEntity);
 exports.SkillsEntity = SkillsEntity;

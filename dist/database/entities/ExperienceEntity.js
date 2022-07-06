@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ExperienceEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const UserEntity_1 = require("./UserEntity");
 let ExperienceEntity = class ExperienceEntity extends typeorm_1.BaseEntity {
     constructor(company, workPeriod, description) {
@@ -19,23 +18,19 @@ let ExperienceEntity = class ExperienceEntity extends typeorm_1.BaseEntity {
         this.company = company;
         this.workPeriod = workPeriod;
         this.description = description;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], ExperienceEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], ExperienceEntity.prototype, "company", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: "work_period" }),
+    (0, typeorm_1.Column)({ name: 'work_period' }),
     __metadata("design:type", String)
 ], ExperienceEntity.prototype, "workPeriod", void 0);
 __decorate([
@@ -51,7 +46,7 @@ __decorate([
     __metadata("design:type", Array)
 ], ExperienceEntity.prototype, "user", void 0);
 ExperienceEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "experience" }),
+    (0, typeorm_1.Entity)({ name: 'experience' }),
     __metadata("design:paramtypes", [String, String, String])
 ], ExperienceEntity);
 exports.ExperienceEntity = ExperienceEntity;

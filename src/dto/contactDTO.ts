@@ -1,5 +1,5 @@
 export type ContactDTO = {
-  id?: string;
+  id?: number;
   phoneNumber: string,
   email: string
 };

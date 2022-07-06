@@ -27,7 +27,7 @@ class ExperienceController {
         const { id } = request.params;
         const service = new services_1.ExperienceService();
         try {
-            const experience = await service.findOne(id);
+            const experience = await service.findOne(parseInt(id));
             return response.json({
                 company: experience?.company.toUpperCase(),
                 workPeriod: experience?.workPeriod.toUpperCase(),
@@ -63,7 +63,7 @@ class ExperienceController {
         const service = new services_1.ExperienceService();
         try {
             const experience = await service.update({
-                id: id,
+                id: parseInt(id),
                 company: company,
                 workPeriod: workPeriod,
                 description: description
@@ -80,7 +80,7 @@ class ExperienceController {
         const { id } = request.params;
         const service = new services_1.ExperienceService();
         try {
-            await service.delete(id);
+            await service.delete(parseInt(id));
             return response.sendStatus(204);
         }
         catch (error) {

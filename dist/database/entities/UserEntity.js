@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const AddressEntity_1 = require("./AddressEntity");
 const ContactEntity_1 = require("./ContactEntity");
 const ExperienceEntity_1 = require("./ExperienceEntity");
@@ -22,16 +21,12 @@ let UserEntity = class UserEntity extends typeorm_1.BaseEntity {
         super();
         this.name = name;
         this.profile = profile;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], UserEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -73,7 +68,7 @@ __decorate([
     __metadata("design:type", Array)
 ], UserEntity.prototype, "language", void 0);
 UserEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "user" }),
+    (0, typeorm_1.Entity)({ name: 'user' }),
     __metadata("design:paramtypes", [String, String])
 ], UserEntity);
 exports.UserEntity = UserEntity;

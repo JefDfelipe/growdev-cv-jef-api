@@ -1,11 +1,16 @@
-import { Entity, BaseEntity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { v4 as uuid } from 'uuid';
+import {
+  Entity,
+  BaseEntity,
+  PrimaryColumn,
+  Column,
+  ManyToOne,
+  JoinColumn } from 'typeorm';
 import { UserEntity } from './UserEntity';
 
 @Entity({ name: 'skills' })
 export class SkillsEntity extends BaseEntity {
   @PrimaryColumn()
-  id?: string;
+  id?: number;
 
   @Column()
   skill: string;
@@ -22,9 +27,5 @@ export class SkillsEntity extends BaseEntity {
   ) {
     super();
     this.skill = skill;
-
-    if (!this.id) {
-      this.id = uuid()
-    };
   };
 };

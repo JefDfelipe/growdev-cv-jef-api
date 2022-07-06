@@ -9,7 +9,7 @@ export class ContactService {
     return contact;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const repository = new ContactRepository();
     const contact = await repository.findOne(id);
 
@@ -30,7 +30,7 @@ export class ContactService {
     return contact;
   };
 
-  async delete(contactID: string) {
+  async delete(contactID: number) {
     const repository = new ContactRepository();
     await repository.delete(contactID);
   };

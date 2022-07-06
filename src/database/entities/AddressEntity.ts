@@ -6,13 +6,12 @@ import {
   ManyToOne,
   JoinColumn
 } from 'typeorm';
-import { v4 as uuid } from 'uuid';
 import { UserEntity } from './UserEntity';
 
 @Entity({ name: 'address' })
 export class AddressEntity extends BaseEntity {
   @PrimaryColumn()
-  id?: string;
+  id?: number;
 
   @Column()
   street: string;
@@ -42,17 +41,12 @@ export class AddressEntity extends BaseEntity {
     state: string,
     cep: string,
     country: string
-  ) 
-  {
+  ) {
     super();
     this.street = street;
     this.city = city;
     this.state = state;
     this.cep = cep;
     this.country = country;
-
-    if (!this.id) {
-      this.id = uuid()
-    };
   };
 };

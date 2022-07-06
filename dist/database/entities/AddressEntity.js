@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AddressEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const UserEntity_1 = require("./UserEntity");
 let AddressEntity = class AddressEntity extends typeorm_1.BaseEntity {
     constructor(street, city, state, cep, country) {
@@ -21,16 +20,12 @@ let AddressEntity = class AddressEntity extends typeorm_1.BaseEntity {
         this.state = state;
         this.cep = cep;
         this.country = country;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], AddressEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -61,7 +56,7 @@ __decorate([
     __metadata("design:type", Array)
 ], AddressEntity.prototype, "user", void 0);
 AddressEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "address" }),
+    (0, typeorm_1.Entity)({ name: 'address' }),
     __metadata("design:paramtypes", [String, String, String, String, String])
 ], AddressEntity);
 exports.AddressEntity = AddressEntity;

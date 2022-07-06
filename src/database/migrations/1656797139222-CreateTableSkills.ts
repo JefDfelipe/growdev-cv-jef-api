@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
 export class CreateTableSkills1656797139222 implements MigrationInterface {
 
@@ -8,8 +8,9 @@ export class CreateTableSkills1656797139222 implements MigrationInterface {
       columns: [
         {
           name: 'id',
-          type: 'uuid',
+          type: 'int',
           isPrimary: true,
+          isGenerated: true,
           isNullable: false
         },
         {
@@ -18,10 +19,10 @@ export class CreateTableSkills1656797139222 implements MigrationInterface {
           isNullable: false
         }
       ]
-    }));
-  };
+    }))
+  }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('skills', true, true, true);
-  };
-};
+    await queryRunner.dropTable('skills', true, true, true)
+  }
+}

@@ -8,7 +8,7 @@ export class SkillsRepository {
     return skill;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const skill = await SkillsEntity.findOne(id);
 
     return skill;
@@ -36,7 +36,7 @@ export class SkillsRepository {
     return skill;
   };
 
-  async delete(skillID: string) {
+  async delete(skillID: number) {
     await SkillsEntity.delete(skillID);
   };
 }

@@ -7,7 +7,6 @@ import {
   ManyToMany,
   JoinTable
 } from 'typeorm';
-import { v4 as uuid } from 'uuid'
 import { AddressEntity } from './AddressEntity'
 import { ContactEntity } from './ContactEntity';
 import { ExperienceEntity } from './ExperienceEntity';
@@ -17,7 +16,7 @@ import { SkillsEntity } from './SkillsEntity';
 @Entity({ name: 'user' })
 export class UserEntity extends BaseEntity {
   @PrimaryColumn()
-  id?: string;
+  id?: number;
 
   @Column()
   name: string;
@@ -58,9 +57,5 @@ export class UserEntity extends BaseEntity {
     super();
     this.name = name;
     this.profile = profile;
-
-    if (!this.id) {
-      this.id = uuid()
-    };
   };
 };

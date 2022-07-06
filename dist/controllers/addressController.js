@@ -9,7 +9,7 @@ class AddressController {
         const service = new services_1.AddressService();
         try {
             const address = await service.find();
-            return response.json(address.map(address => {
+            return response.json(address.map((address) => {
                 return {
                     street: address.street.toUpperCase(),
                     city: address.city.toUpperCase(),
@@ -29,7 +29,7 @@ class AddressController {
         const { id } = request.params;
         const service = new services_1.AddressService();
         try {
-            const address = await service.findOne(id);
+            const address = await service.findOne(parseInt(id));
             return response.json({
                 street: address?.street.toUpperCase(),
                 city: address?.city.toUpperCase(),
@@ -69,7 +69,7 @@ class AddressController {
         const service = new services_1.AddressService();
         try {
             const address = await service.update({
-                id: id,
+                id: parseInt(id),
                 street: street,
                 city: city,
                 state: state,
@@ -88,7 +88,7 @@ class AddressController {
         const { id } = request.params;
         const service = new services_1.AddressService();
         try {
-            await service.delete(id);
+            await service.delete(parseInt(id));
             return response.sendStatus(204);
         }
         catch (error) {

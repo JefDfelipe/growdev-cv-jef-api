@@ -8,7 +8,7 @@ export class ExperienceRepository {
     return experience;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const experience = await ExperienceEntity.findOne(id);
 
     return experience;
@@ -40,7 +40,7 @@ export class ExperienceRepository {
     return experience;
   };
 
-  async delete(experienceID: string) {
+  async delete(experienceID: number) {
     await ExperienceEntity.delete(experienceID);
   };
 };

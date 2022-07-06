@@ -8,7 +8,7 @@ export class AddressRepository {
     return address;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const address = await AddressEntity.findOne(id);
 
     return address;
@@ -44,7 +44,7 @@ export class AddressRepository {
     return address;
   };
 
-  async delete(addressID: string) {
+  async delete(addressID: number) {
     await AddressEntity.delete(addressID);
   };
 };

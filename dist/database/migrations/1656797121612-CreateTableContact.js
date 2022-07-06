@@ -5,33 +5,32 @@ const typeorm_1 = require("typeorm");
 class CreateTableContact1656797121612 {
     async up(queryRunner) {
         await queryRunner.createTable(new typeorm_1.Table({
-            name: "contact",
+            name: 'contact',
             columns: [
                 {
-                    name: "id",
-                    type: "uuid",
+                    name: 'id',
+                    type: 'int',
                     isPrimary: true,
+                    isGenerated: true,
                     isNullable: false
                 },
                 {
-                    name: "phone_number",
-                    type: "varchar",
-                    length: "11",
+                    name: 'phone_number',
+                    type: 'varchar',
+                    length: '11',
                     isNullable: false
                 },
                 {
-                    name: "email",
-                    type: "varchar",
-                    length: "255",
+                    name: 'email',
+                    type: 'varchar',
+                    length: '255',
                     isNullable: false
                 },
             ]
         }));
     }
-    ;
     async down(queryRunner) {
-        await queryRunner.dropTable("contact", true, true, true);
+        await queryRunner.dropTable('contact', true, true, true);
     }
-    ;
 }
 exports.CreateTableContact1656797121612 = CreateTableContact1656797121612;

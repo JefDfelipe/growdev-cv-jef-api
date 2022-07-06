@@ -11,22 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LanguagesEntity = void 0;
 const typeorm_1 = require("typeorm");
-const uuid_1 = require("uuid");
 const UserEntity_1 = require("./UserEntity");
 let LanguagesEntity = class LanguagesEntity extends typeorm_1.BaseEntity {
     constructor(language) {
         super();
         this.language = language;
-        if (!this.id) {
-            this.id = (0, uuid_1.v4)();
-        }
-        ;
     }
     ;
 };
 __decorate([
     (0, typeorm_1.PrimaryColumn)(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], LanguagesEntity.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
@@ -48,7 +43,7 @@ __decorate([
     __metadata("design:type", Array)
 ], LanguagesEntity.prototype, "user", void 0);
 LanguagesEntity = __decorate([
-    (0, typeorm_1.Entity)({ name: "languages" }),
+    (0, typeorm_1.Entity)({ name: 'languages' }),
     __metadata("design:paramtypes", [String])
 ], LanguagesEntity);
 exports.LanguagesEntity = LanguagesEntity;

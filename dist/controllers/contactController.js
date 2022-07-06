@@ -26,7 +26,7 @@ class ContactController {
         const { id } = request.params;
         const service = new services_1.ContactService();
         try {
-            const contact = await service.findOne(id);
+            const contact = await service.findOne(parseInt(id));
             return response.json({
                 phoneNumber: contact?.phoneNumber.toUpperCase(),
                 email: contact?.email.toUpperCase()
@@ -60,7 +60,7 @@ class ContactController {
         const service = new services_1.ContactService();
         try {
             const contact = await service.update({
-                id: id,
+                id: parseInt(id),
                 phoneNumber: phoneNumber,
                 email: email
             });
@@ -76,7 +76,7 @@ class ContactController {
         const { id } = request.params;
         const service = new services_1.ContactService();
         try {
-            await service.delete(id);
+            await service.delete(parseInt(id));
             return response.sendStatus(204);
         }
         catch (error) {

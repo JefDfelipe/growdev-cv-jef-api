@@ -9,7 +9,7 @@ export class LanguagesService {
     return language;
   };
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const repository = new LanguagesRepository();
     const language = await repository.findOne(id);
 
@@ -30,7 +30,7 @@ export class LanguagesService {
     return language;
   };
 
-  async delete(languageID: string) {
+  async delete(languageID: number) {
     const repository = new LanguagesRepository();
     await repository.delete(languageID);
   };

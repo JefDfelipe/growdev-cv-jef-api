@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
 export class CreateTableLanguages1656797131450 implements MigrationInterface {
 
@@ -8,8 +8,9 @@ export class CreateTableLanguages1656797131450 implements MigrationInterface {
       columns: [
         {
           name: 'id',
-          type: 'uuid',
+          type: 'int',
           isPrimary: true,
+          isGenerated: true,
           isNullable: false
         },
         {
@@ -19,10 +20,10 @@ export class CreateTableLanguages1656797131450 implements MigrationInterface {
           isNullable: false
         }
       ]
-    }));
-  };
+    }))
+  }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('languages', true, true, true);
-  };
-};
+    await queryRunner.dropTable('languages', true, true, true)
+  }
+}
