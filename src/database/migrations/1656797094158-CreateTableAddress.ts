@@ -42,19 +42,7 @@ export class CreateTableAddress1656797094158 implements MigrationInterface {
           type: 'varchar',
           length: '60',
           isNullable: false
-        },
-        {
-          name: 'user_id',
-          type: 'int',
-          isNullable: false
         }
-      ],
-      foreignKeys: [
-        new TableForeignKey({
-          columnNames: ['user_id'],
-          referencedColumnNames: ['id'],
-          referencedTableName: 'user'
-        })
       ]
     }))
   }
