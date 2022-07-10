@@ -113,19 +113,14 @@ export class UserController {
 
   async update(request: Request, response: Response) {
     const { id } = request.params;
-    const { name, profile, address, contact, experience, languages, skills }: UserDTO = request.body;
+    const { name, profile }: UserDTO = request.body;
     const service = new UserService();
 
     try {
       const user = await service.update({
         id: parseInt(id),
         name: name,
-        profile: profile,
-        address: address,
-        contact: contact,
-        experience: experience,
-        languages: languages,
-        skills: skills
+        profile: profile
       });
 
       return response.json(user);
