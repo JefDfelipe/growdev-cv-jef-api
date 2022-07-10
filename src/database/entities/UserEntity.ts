@@ -25,21 +25,6 @@ export class UserEntity extends BaseEntity {
   @Column()
   profile: string;
 
-  // @Column({ name: 'address_id' })
-  // addressId: number;
-
-  // @Column({ name: 'contact_id' })
-  // contactId: number;
-
-  // @Column({ name: 'experience_id' })
-  // experienceId: number;
-
-  // @Column({ name: 'skills_id' })
-  // skillsId: number;
-
-  // @Column({ name: 'languages_id' })
-  // languagesId: number;
-
   @OneToMany(type => AddressEntity, address => address.user)
   @JoinColumn({ name: 'address_id', referencedColumnName: 'id' })
   address?: AddressEntity[];
@@ -72,20 +57,10 @@ export class UserEntity extends BaseEntity {
 
   constructor(
     name: string,
-    profile: string,
-    // addressId: number,
-    // contactId: number,
-    // experienceId: number,
-    // skillsId: number,
-    // languagesId: number
+    profile: string
   ) {
     super();
     this.name = name;
     this.profile = profile;
-    // this.addressId = addressId;
-    // this.contactId = contactId;
-    // this.experienceId = experienceId;
-    // this.skillsId = skillsId;
-    // this.languagesId = languagesId;
   };
 };
