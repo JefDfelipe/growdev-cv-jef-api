@@ -49,10 +49,6 @@ __decorate([
 ], AddressEntity.prototype, "country", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(type => UserEntity_1.UserEntity, user => user.address),
-    (0, typeorm_1.JoinColumn)({
-        name: 'user_id',
-        referencedColumnName: 'id'
-    }),
     __metadata("design:type", Array)
 ], AddressEntity.prototype, "user", void 0);
 AddressEntity = __decorate([

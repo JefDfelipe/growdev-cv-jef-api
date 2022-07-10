@@ -27,21 +27,25 @@ export class CreateTableUser1656786611149 implements MigrationInterface {
         {
           name: 'address_id',
           type: 'int',
+          isPrimary: true,
           isNullable: false
         },
         {
           name: 'experience_id',
           type: 'int',
+          isPrimary: true,
           isNullable: false
         },
         {
           name: 'contact_id',
           type: 'int',
+          isPrimary: true,
           isNullable: false
         },
         {
           name: 'skills_id',
           type: 'int',
+          isPrimary: true,
           isNullable: false
         }
       ],

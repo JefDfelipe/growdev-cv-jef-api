@@ -23,10 +23,6 @@ export class ExperienceEntity extends BaseEntity {
   description: string;
 
   @ManyToOne(type => UserEntity, user => user.experience)
-  @JoinColumn({
-    name: 'user_id',
-    referencedColumnName: 'id'
-  })
   user?: UserEntity[];
 
   constructor(

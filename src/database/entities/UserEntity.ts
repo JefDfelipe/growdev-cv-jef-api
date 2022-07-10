@@ -5,7 +5,8 @@ import {
   Column,
   OneToMany,
   ManyToMany,
-  JoinTable
+  JoinTable,
+  JoinColumn
 } from 'typeorm';
 import { AddressEntity } from './AddressEntity'
 import { ContactEntity } from './ContactEntity';
@@ -24,16 +25,35 @@ export class UserEntity extends BaseEntity {
   @Column()
   profile: string;
 
+  // @Column({ name: 'address_id' })
+  // addressId: number;
+
+  // @Column({ name: 'contact_id' })
+  // contactId: number;
+
+  // @Column({ name: 'experience_id' })
+  // experienceId: number;
+
+  // @Column({ name: 'skills_id' })
+  // skillsId: number;
+
+  // @Column({ name: 'languages_id' })
+  // languagesId: number;
+
   @OneToMany(type => AddressEntity, address => address.user)
+  @JoinColumn({ name: 'address_id', referencedColumnName: 'id' })
   address?: AddressEntity[];
 
   @OneToMany(type => ContactEntity, contact => contact.user)
+  @JoinColumn({ name: 'contact_id', referencedColumnName: 'id' })
   contact?: ContactEntity[];
 
   @OneToMany(type => ExperienceEntity, experience => experience.user)
+  @JoinColumn({ name: 'experience_id', referencedColumnName: 'id' })
   experience?: ExperienceEntity[];
 
   @OneToMany(type => SkillsEntity, skill => skill.user)
+  @JoinColumn({ name: 'skills_id', referencedColumnName: 'id' })
   skill?: SkillsEntity[];
 
   @ManyToMany(type => LanguagesEntity, language => language.user)
@@ -53,9 +73,19 @@ export class UserEntity extends BaseEntity {
   constructor(
     name: string,
     profile: string,
+    // addressId: number,
+    // contactId: number,
+    // experienceId: number,
+    // skillsId: number,
+    // languagesId: number
   ) {
     super();
     this.name = name;
     this.profile = profile;
+    // this.addressId = addressId;
+    // this.contactId = contactId;
+    // this.experienceId = experienceId;
+    // this.skillsId = skillsId;
+    // this.languagesId = languagesId;
   };
 };

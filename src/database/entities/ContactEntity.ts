@@ -20,10 +20,6 @@ export class ContactEntity extends BaseEntity {
   email: string;
 
   @ManyToOne(type => UserEntity, user => user.contact)
-  @JoinColumn({
-    name: 'user_id',
-    referencedColumnName: 'id'
-  })
   user?: UserEntity[];
 
   constructor(

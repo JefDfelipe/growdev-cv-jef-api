@@ -39,10 +39,6 @@ __decorate([
 ], ExperienceEntity.prototype, "description", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(type => UserEntity_1.UserEntity, user => user.experience),
-    (0, typeorm_1.JoinColumn)({
-        name: 'user_id',
-        referencedColumnName: 'id'
-    }),
     __metadata("design:type", Array)
 ], ExperienceEntity.prototype, "user", void 0);
 ExperienceEntity = __decorate([

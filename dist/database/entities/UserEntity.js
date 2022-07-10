@@ -21,6 +21,11 @@ let UserEntity = class UserEntity extends typeorm_1.BaseEntity {
         super();
         this.name = name;
         this.profile = profile;
+        // this.addressId = addressId;
+        // this.contactId = contactId;
+        // this.experienceId = experienceId;
+        // this.skillsId = skillsId;
+        // this.languagesId = languagesId;
     }
     ;
 };
@@ -38,18 +43,22 @@ __decorate([
 ], UserEntity.prototype, "profile", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => AddressEntity_1.AddressEntity, address => address.user),
+    (0, typeorm_1.JoinColumn)({ name: 'address_id', referencedColumnName: 'id' }),
     __metadata("design:type", Array)
 ], UserEntity.prototype, "address", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => ContactEntity_1.ContactEntity, contact => contact.user),
+    (0, typeorm_1.JoinColumn)({ name: 'contact_id', referencedColumnName: 'id' }),
     __metadata("design:type", Array)
 ], UserEntity.prototype, "contact", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => ExperienceEntity_1.ExperienceEntity, experience => experience.user),
+    (0, typeorm_1.JoinColumn)({ name: 'experience_id', referencedColumnName: 'id' }),
     __metadata("design:type", Array)
 ], UserEntity.prototype, "experience", void 0);
 __decorate([
     (0, typeorm_1.OneToMany)(type => SkillsEntity_1.SkillsEntity, skill => skill.user),
+    (0, typeorm_1.JoinColumn)({ name: 'skills_id', referencedColumnName: 'id' }),
     __metadata("design:type", Array)
 ], UserEntity.prototype, "skill", void 0);
 __decorate([

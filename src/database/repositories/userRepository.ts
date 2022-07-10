@@ -19,7 +19,6 @@ export class UserRepository {
       userDTO.name,
       userDTO.profile
     );
-
     user.save();
 
     return user;

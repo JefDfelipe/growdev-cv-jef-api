@@ -1,5 +1,12 @@
 import { Request, Response } from 'express';
-import { UserService } from '../services';
+import {
+  UserService,
+  AddressService,
+  ContactService,
+  ExperienceService,
+  LanguagesService,
+  SkillsService
+} from '../services';
 import { HttpError } from '../errors';
 import { defaultErrorMessage, HttpInternalErrorCode } from '../constants';
 import { UserDTO } from '../dto';
@@ -38,19 +45,65 @@ export class UserController {
   };
 
   async store(request: Request, response: Response) {
-    const { name, profile, address, contact, experience, languages, skills }: UserDTO = request.body;
-    const service = new UserService();
+    const { name, profile, address, contact, experience, languages, skills } = request.body;
+    const userService = new UserService();
+    const addressService = new AddressService();
+    const contactService = new ContactService();
+    const experienceService = new ExperienceService();
+    const languageService = new LanguagesService();
+    const skillService = new SkillsService();
+    const dto: UserDTO = {
+      name,
+      profile,
+      address: [],
+      contact: [],
+      experience: [],
+      languages: [],
+      skills: []
+    };
 
     try {
-      const user = await service.create({
-        name: name,
-        profile: profile,
-        address: address,
-        contact: contact,
-        experience: experience,
-        languages: languages,
-        skills: skills
+      address.forEach(async (address: number) => {
+        const resultQuery = await addressService.findOne(address);
+
+        if (resultQuery && resultQuery.id) {
+          dto.address?.push(resultQuery.id);
+        };
       });
+
+      contact.forEach(async (contact: number) => {
+        const resultQuery = await contactService.findOne(contact);
+
+        if (resultQuery && resultQuery.id) {
+          dto.contact?.push(resultQuery.id);
+        };
+      });
+
+      experience.forEach(async (experience: number) => {
+        const resultQuery = await experienceService.findOne(experience);
+
+        if (resultQuery && resultQuery.id) {
+          dto.experience?.push(resultQuery.id);
+        };
+      });
+
+      languages.forEach(async (language: number) => {
+        const resultQuery = await languageService.findOne(language);
+
+        if (resultQuery && resultQuery.id) {
+          dto.languages?.push(resultQuery.id);
+        };
+      });
+
+      skills.forEach(async (skill: number) => {
+        const resultQuery = await skillService.findOne(skill);
+
+        if (resultQuery && resultQuery.id) {
+          dto.skills?.push(resultQuery.id);
+        };
+      });
+
+      const user = await userService.create(dto);
 
       return response.json(user);
     } catch (error) {

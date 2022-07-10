@@ -34,10 +34,6 @@ __decorate([
 ], ContactEntity.prototype, "email", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(type => UserEntity_1.UserEntity, user => user.contact),
-    (0, typeorm_1.JoinColumn)({
-        name: 'user_id',
-        referencedColumnName: 'id'
-    }),
     __metadata("design:type", Array)
 ], ContactEntity.prototype, "user", void 0);
 ContactEntity = __decorate([

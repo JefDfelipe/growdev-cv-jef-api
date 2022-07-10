@@ -29,10 +29,6 @@ export class AddressEntity extends BaseEntity {
   country: string;
 
   @ManyToOne(type => UserEntity, user => user.address)
-  @JoinColumn({
-    name: 'user_id',
-    referencedColumnName: 'id'
-  })
   user?: UserEntity[];
 
   constructor(
